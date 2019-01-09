@@ -32,6 +32,7 @@ public class ImageServiceImpl implements ImageService {
                     Byte[] byteObjects = new Byte[0];
                     try {
                         byteObjects = new Byte[file.getBytes().length];
+
                         int i = 0;
 
                         for (byte b : file.getBytes()) {
@@ -41,6 +42,7 @@ public class ImageServiceImpl implements ImageService {
                         recipe.setImage(byteObjects);
 
                         return recipe;
+
                     } catch (IOException e) {
                         e.printStackTrace();
                         throw new RuntimeException(e);
@@ -50,5 +52,6 @@ public class ImageServiceImpl implements ImageService {
         recipeReactiveRepository.save(recipeMono.block()).block();
 
         return Mono.empty();
+
     }
 }

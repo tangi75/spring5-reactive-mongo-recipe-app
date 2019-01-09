@@ -83,7 +83,9 @@ public class IngredientController {
     }
 
     @PostMapping("recipe/{recipeId}/ingredient")
-    public String saveOrUpdate(@ModelAttribute("ingredient") IngredientCommand command, Model model){
+    public String saveOrUpdate(@ModelAttribute("ingredient") IngredientCommand command,
+                               Model model){
+
         webDataBinder.validate();
         BindingResult bindingResult = webDataBinder.getBindingResult();
 
